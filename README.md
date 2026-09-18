@@ -5,6 +5,8 @@
 ![Vue 3](https://img.shields.io/badge/Vue-3-42b883)
 ![Ant Design Vue](https://img.shields.io/badge/Ant%20Design%20Vue-4-0170fe)
 
+**在线使用：<https://zjucst-timetable-converter.pages.dev/>**（纯前端，课表文件只在你的浏览器里解析，不会上传）
+
 把浙江大学**两季度学期**（秋 + 冬 / 春 + 夏）的教务系统课表，与学院发布的**完整选修课程时间表**合并，
 自动补全课表中缺失的上课时间与教室，按学校的节假日与调休安排重算每一节课的实际日期，
 最终导出 **Wakeup 课程表**可导入的 CSV 文件。
