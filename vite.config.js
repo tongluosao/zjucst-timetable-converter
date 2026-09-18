@@ -11,6 +11,16 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    chunkSizeWarningLimit: 1500,
+    chunkSizeWarningLimit: 900,
+    rollupOptions: {
+      output: {
+        // 拆分 vendor，让 antd / xlsx 这类不常变的依赖能被浏览器长期缓存
+        manualChunks: {
+          vue: ['vue'],
+          antd: ['ant-design-vue'],
+          xlsx: ['xlsx'],
+        },
+      },
+    },
   },
 })
