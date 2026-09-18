@@ -1,5 +1,10 @@
 # 浙江大学软件学院课表转换器（ZJU Timetable Converter）
 
+[![Deploy to Cloudflare Pages](https://github.com/tongluosao/zjucst-timetable-converter/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/tongluosao/zjucst-timetable-converter/actions/workflows/deploy-pages.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+![Vue 3](https://img.shields.io/badge/Vue-3-42b883)
+![Ant Design Vue](https://img.shields.io/badge/Ant%20Design%20Vue-4-0170fe)
+
 把浙江大学**两季度学期**（秋 + 冬 / 春 + 夏）的教务系统课表，与学院发布的**完整选修课程时间表**合并，
 自动补全课表中缺失的上课时间与教室，按学校的节假日与调休安排重算每一节课的实际日期，
 最终导出 **Wakeup 课程表**可导入的 CSV 文件。
@@ -191,6 +196,9 @@ npm run build
 
 仓库已内置 `.github/workflows/deploy-pages.yml`：push 到 `main` 即自动 `npm ci && npm run build`，
 再用 `cloudflare/wrangler-action` 把 `dist/` 发布到 Cloudflare Pages；PR 会额外生成预览环境。
+
+> 未配置 Cloudflare Secrets 时，工作流会正常构建并**跳过发布步骤**并给出提示，不会报红。
+> 配好 Secrets 后无需改动工作流，下次 push 即自动上线。
 
 ### 一次性配置
 
