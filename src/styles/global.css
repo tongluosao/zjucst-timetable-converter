@@ -1,0 +1,230 @@
+:root {
+  --zju-blue: #003f88;
+  --zju-blue-soft: #e8f0fb;
+  --page-bg: #f4f6fa;
+  --card-radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--page-bg);
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', Roboto, sans-serif;
+}
+
+.app-header {
+  background: linear-gradient(120deg, #003f88 0%, #0a5cb8 100%);
+  color: #fff;
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.app-header .sub {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.app-body {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 16px 64px;
+}
+
+.panel-card {
+  background: #fff;
+  border-radius: var(--card-radius);
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 1px 4px rgba(15, 40, 80, 0.08);
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  color: #14304f;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-desc {
+  font-size: 12.5px;
+  color: #6b7a90;
+  margin: 0 0 14px;
+  line-height: 1.7;
+}
+
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 14px;
+}
+
+.mono {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 12.5px;
+}
+
+.csv-preview {
+  background: #0f1b2d;
+  color: #d6e4ff;
+  border-radius: 8px;
+  padding: 14px 16px;
+  max-height: 380px;
+  overflow: auto;
+  white-space: pre;
+  line-height: 1.8;
+  font-size: 12.5px;
+  font-family: 'SFMono-Regular', Consolas, Menlo, monospace;
+}
+
+/* ---- 周视图 ---- */
+.week-grid {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 12px;
+}
+
+.week-grid th,
+.week-grid td {
+  border: 1px solid #e3e8f0;
+  padding: 4px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.week-grid th {
+  background: #f0f4fa;
+  color: #234;
+  font-weight: 600;
+  padding: 8px 4px;
+}
+
+.week-grid th.holiday-col {
+  background: #fdecec;
+  color: #b0202a;
+}
+
+.week-grid .period-cell {
+  width: 52px;
+  background: #fafbfd;
+  color: #6b7a90;
+}
+
+.week-grid td.holiday-cell {
+  background: repeating-linear-gradient(45deg, #fff5f5, #fff5f5 6px, #ffecec 6px, #ffecec 12px);
+}
+
+/* 跨节次的课程块：td 用 rowspan 贯通，外层撑满整格 */
+.week-grid td.block-cell {
+  padding: 3px;
+}
+
+.block-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  height: 100%;
+  /* 兜底：即使百分比高度未解析，也按跨越的节次数撑开 */
+  min-height: calc(var(--span, 1) * 30px);
+}
+
+.course-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 5px 6px;
+  color: #fff;
+  line-height: 1.35;
+  text-align: left;
+  overflow: hidden;
+  min-height: 26px;
+}
+
+.course-block .cb-name {
+  font-weight: 600;
+  font-size: 12px;
+  display: block;
+  white-space: normal;
+  word-break: break-all;
+}
+
+.course-block .cb-meta {
+  font-size: 11px;
+  opacity: 0.9;
+  display: block;
+}
+
+.course-block .cb-moved {
+  font-size: 10.5px;
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 3px;
+  padding: 0 3px;
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.legend {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: #5a6b82;
+  margin-top: 10px;
+}
+
+/* 标题右侧的?号提示按钮 */
+.help-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #aab2bf;
+  color: #5a6b82;
+  font-size: 12px;
+  line-height: 1;
+  margin-left: 6px;
+  cursor: help;
+  user-select: none;
+  vertical-align: middle;
+  font-weight: 600;
+  background: #f7f9fc;
+  transition: all 0.15s ease;
+}
+.help-dot:hover {
+  color: #1677ff;
+  border-color: #1677ff;
+  background: #e8f0fb;
+}
+
+.legend i {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  margin-right: 5px;
+  vertical-align: -2px;
+}

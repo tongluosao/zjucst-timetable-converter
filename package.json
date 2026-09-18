@@ -1,0 +1,28 @@
+{
+  "name": "zju-timetable-converter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "浙江大学两季度学期课表转换工具：合并教务系统课表 + 学院选修课程时间表，自动处理节假日调休，导出 Wakeup 课程表 CSV",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "gen:elective": "node scripts/convert-elective.mjs",
+    "verify": "node scripts/verify.mjs"
+  },
+  "dependencies": {
+    "ant-design-vue": "^4.2.6",
+    "dayjs": "^1.11.13",
+    "vue": "^3.5.13",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^6.0.7"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true,
+    "core-js@3.50.0": true
+  }
+}

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.vite/
+*.local
+.DS_Store
+npm-debug.log*
+yarn-error.log*
+.idea/
+.vscode/
+# WorkBuddy 本地记忆数据（不入库）
+.workbuddy-ai/
+.wrangler/
