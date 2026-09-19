@@ -3,7 +3,6 @@ import { ref, computed } from 'vue'
 import { message, Modal } from 'ant-design-vue'
 import { state, loadTimetable, clearTimetable, setFileTerm } from '../store.js'
 import { WEEKDAY_NAMES, describePeriods } from '../lib/periods.js'
-import helpExportImage from '../assets/help-export-timetable.png'
 
 const loading = ref([false, false])
 const SLOT_TITLES = ['第一季度学期（秋）', '第二季度学期（冬）']
@@ -92,27 +91,13 @@ const counts = computed(() =>
     <div class="panel-card">
       <h3 class="section-title">
         上传教务系统导出的个人课表
-        <a-popover trigger="hover" placement="rightTop" :overlay-inner-style="{ maxWidth: '520px' }">
+        <a-popover trigger="hover" placement="rightTop" :overlay-inner-style="{ maxWidth: '320px' }">
           <template #content>
             <div style="line-height: 1.7">
-              <div style="font-weight: 600; margin-bottom: 6px">如何导出每个季度的课表</div>
-              <div>
-                登录<a href="https://ugrs.zju.edu.cn/" target="_blank" rel="noopener">浙大新版本科生/研究生教务系统</a>
-                ，进入「<b>查看我的课表</b>」页面，把左上角的「<b>开课学季</b>」分别切换为
-                <b>秋</b>和<b>冬</b>，点页面右下角的 <b>导出课表</b>，即可得到两个 <code>.xls</code> 文件。
-                复制下方截图作参考：
-              </div>
-              <img
-                :src="helpExportImage"
-                alt="导出课表位置示意图"
-                style="width: 100%; border-radius: 6px; margin-top: 8px; border: 1px solid #d9dde4"
-              />
-              <div style="color: #8a97a8; font-size: 12px; margin-top: 6px">
-                ▲ 红箭头指向页面右下角的「导出课表」按钮
-              </div>
+              <a href="https://yjsy.zju.edu.cn/" target="_blank" rel="noopener">登录浙大研究生教务系统</a>
             </div>
           </template>
-          <a class="help-dot" aria-label="导出教程">?</a>
+          <a class="help-dot" aria-label="教务系统入口">?</a>
         </a-popover>
       </h3>
       <p class="section-desc">
